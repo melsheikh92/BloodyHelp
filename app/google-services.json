@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "127797707447",
+    "firebase_url": "https://bloodyapp-5a558.firebaseio.com",
+    "project_id": "bloodyapp-5a558",
+    "storage_bucket": "bloodyapp-5a558.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:127797707447:android:dd74a0c049873289",
+        "android_client_info": {
+          "package_name": "com.example.mahmoud.bloodyhelp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "127797707447-lkhvk265jop37bd61haq7i0nc05ilmba.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mahmoud.bloodyhelp",
+            "certificate_hash": "a779ae591dfc99a22c87c57f21c2b3768a0addf5"
+          }
+        },
+        {
+          "client_id": "127797707447-qjluij79fqg1usrsvfonct7t50cfttf0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnQNPyEF_UoDsK1KeZ_On1Nhn3P3TOT4s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "127797707447-qjluij79fqg1usrsvfonct7t50cfttf0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

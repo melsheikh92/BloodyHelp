@@ -1,3 +1,39 @@
 <resources>
     <string name="app_name">BloodyHelp</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="blood_type">Blood Type</string>
+    <string name="city">City</string>
+    <string name="key_shared_trans">Add widget</string>
+    <string name="key_settings_notif">key_settings_notif</string>
+    <string name="url_qoutes">https://talaikis.com/api/quotes/random/</string>
+    <string name="url_root">http://melsheikh92-001-site1.itempurl.com/Services/CommonServices.svc/</string>
+    <string name="blood_op">blood type O positive</string>
+    <string name="blood_am">blood type A negative</string>
+    <string name="blood_ap">blood type A positive</string>
+    <string name="blood_bm">blood type B negative</string>
+    <string name="blood_bp">blood type B positive</string>
+    <string name="blood_abm">blood type AB negative</string>
+    <string name="blood_abp">blood type AB positive</string>
+    <string name="send_mail">Send email</string>
+    <string name="make_call">Call</string>
+    <string name="make_share">Share</string>
+    <string name="fav_add_remove">Add or remove from favorite list</string>
+
+    <string-array name="bloodtypes">
+        <item>O positive</item>
+        <item>A negative</item>
+        <item>A positive</item>
+        <item>B negative</item>
+        <item>B positive</item>
+        <item>AB negative</item>
+        <item>AB positive</item>
+    </string-array>
+    <string-array name="arr_cities">
+        <item>Cairo</item>
+        <item>Alex</item>
+        <item>Gizah</item>
+        <item>Aswan</item>
+        <item>Luxour</item>
+    </string-array>
 </resources>

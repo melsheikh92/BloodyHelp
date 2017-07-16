@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.mahmoud.bloodyhelp.activities.SettingsActivity">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Donor"
+            android:textColor="@android:color/white"
+            android:textSize="22sp" />
+
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <FrameLayout
+        android:id="@+id/settings_framelayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="80dp"
+
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+
+                android:padding="10dp">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/input_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Display name"
+                        android:windowSoftInputMode="stateHidden" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_mobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/input_mobile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Mobile number"
+                        android:windowSoftInputMode="stateHidden" />
+
+                </android.support.design.widget.TextInputLayout>
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/input_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Email"
+                        android:windowSoftInputMode="stateHidden" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:text="Bood type" />
+
+                <Spinner
+                    android:id="@+id/spinner_blood"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="2dp"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:entries="@array/bloodtypes"
+                    android:prompt="@string/blood_type"
+                    android:spinnerMode="dropdown"
+
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+
+                    android:text="City" />
+
+                <Spinner
+                    android:id="@+id/spinner_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="2dp"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:entries="@array/arr_cities"
+                    android:prompt="@string/city"
+                    android:spinnerMode="dropdown" />
+
+                <EditText
+                    android:id="@+id/input_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:background="@color/colorSilver"
+                    android:elevation="4dp"
+                    android:gravity="start"
+                    android:hint="Description"
+                    android:inputType="text"
+                    android:lines="6"
+                    android:padding="5dp"
+                    android:textAlignment="viewStart"
+                    android:textAppearance="@style/TextAppearance.AppCompat"
+                    android:windowSoftInputMode="stateHidden"
+                    tools:targetApi="lollipop" />
+
+
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_gravity="bottom"
+            android:background="@android:color/white"
+            android:elevation="6dp"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dip"
+                android:layout_marginEnd="3dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="1dp"
+                android:background="@color/colorAccent" />
+
+            <Button
+                android:id="@+id/btn_submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:background="@color/colorPrimary"
+                android:text="Submit"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+    </FrameLayout>
+
+</LinearLayout>
