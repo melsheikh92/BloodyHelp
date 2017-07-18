@@ -41,10 +41,8 @@
         <item>AB positive</item>
     </string-array>
     <string-array name="arr_cities">
-        <item>Cairo</item>
         <item>Alex</item>
+        <item>Cairo</item>
         <item>Gizah</item>
-        <item>Aswan</item>
-        <item>Luxour</item>
     </string-array>
 </resources>

@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -49,6 +51,7 @@ public class DonorFormActivity extends AppCompatActivity {
     Button btn_submit;
     static Context mcontext;
     static Activity activity;
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,36 +74,142 @@ public class DonorFormActivity extends AppCompatActivity {
 
         );
 
+        input_email.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                if (input_email.getText().length() == 0) {
+                    input_email.setError("Cannot be empty");
+
+                } else {
+                    if (input_email.getText().toString().trim().matches(emailPattern)) {
+                    } else {
+
+                        input_email.setError("you input not seems to be an email");
+
+                    }
+
+                }
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        inpute_desc.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (inpute_desc.getText().toString().trim().length() == 0) {
+                    inpute_desc.setError("cannot be empty");
+
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        input_mobile.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (input_mobile.getText().toString().trim().length() == 0) {
+                    input_mobile.setError("Cannot be empty");
+
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        input_name.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (input_name.getText().toString().trim().length() == 0) {
+                    input_name.setError("cannot be empty");
+
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
     }
 
     @OnClick(R.id.btn_submit)
     void onButtonSubmit_clicked() {
         Utilities.showProgressDialog(this);
-        if (true) {
+        if (isDataValidated()) {
             Intent i = new Intent(this, InsertNewDonorService.class);
             Donor donor = new Donor();
             donor.setName(input_name.getText().toString());
-            donor.setCityId(spinner_city.getSelectedItemPosition());
+            donor.setCityId(spinner_city.getSelectedItemPosition()+1);
             donor.setPhone(input_mobile.getText().toString());
             donor.setEmail(input_email.getText().toString());
-            donor.setTypeId(spinner_blood.getSelectedItemPosition());
+            donor.setTypeId(spinner_blood.getSelectedItemPosition()+1);
             donor.setDescription(inpute_desc.getText().toString());
             i.putExtra(KEY_INSERT_DONOR, donor);
-
             startService(i);
-        }
+        }else {
+            Utilities.hideProgressDialog();
 
+        }
     }
 
     private boolean isDataValidated() {
+        boolean flag = true;
+        if (input_email.getText().toString().trim().length() == 0) {
+            flag = false;
+            input_email.setError("Cannot be empty");
+        } else {
+            if (input_email.getText().toString().trim().matches(emailPattern)) {
+            } else {
+                input_email.setError("you input not seems to be an email");
+                flag = false;
 
-        if (input_email.getText().toString() != "" && input_name.getText().toString() != "" && inpute_desc.getText().toString() != "") {
-
-
+            }
         }
-
-
-        return false;
+        if (input_name.getText().toString().trim().length() == 0) {
+            input_name.setError("Cannot be empty");
+            flag = false;
+        }
+        if (input_mobile.getText().toString().trim().length() == 0) {
+            input_mobile.setError("Cannot be empty");
+            flag = false;
+        }
+        if (inpute_desc.getText().toString().trim().length() == 0) {
+            inpute_desc.setError("Cannot be empty");
+            flag = false;
+        }
+        return flag;
     }
 
 
@@ -127,9 +236,7 @@ public class DonorFormActivity extends AppCompatActivity {
                             dialog.dismiss();
                         }
                     });
-
             AlertDialog alertDialog = alertDialogBuilder.create();
-
             alertDialog.show();
         }
 
