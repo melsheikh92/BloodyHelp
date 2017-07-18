@@ -21,6 +21,17 @@
     <string name="fav_add_remove">Add or remove from favorite list</string>
 
     <string-array name="bloodtypes">
+
+        <item>All</item>
+        <item>O positive</item>
+        <item>A negative</item>
+        <item>A positive</item>
+        <item>B negative</item>
+        <item>B positive</item>
+        <item>AB negative</item>
+        <item>AB positive</item>
+    </string-array>
+    <string-array name="bloodtypes2">
         <item>O positive</item>
         <item>A negative</item>
         <item>A positive</item>

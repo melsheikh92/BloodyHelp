@@ -96,6 +96,7 @@ public class GridFragment extends android.support.v4.app.Fragment implements Loa
     }
 
     private void updateRecyclerView() {
+        MainActivity.mfiltertype = 0;
         loaderManager.initLoader(loader_donors_key, null, this).forceLoad();
 
     }
@@ -200,6 +201,20 @@ public class GridFragment extends android.support.v4.app.Fragment implements Loa
         if (data != null) {
             donors_array = data;
 
+            ArrayList<Donor> donors = new ArrayList<Donor>();
+            if (MainActivity.mfiltertype != 0) {
+                for (Donor d : donors_array) {
+                    if (MainActivity.mfiltertype == d.getId()) {
+                        donors.add(d);
+                    }
+
+                }
+            } else {
+                donors = donors_array;
+
+            }
+
+
             recyclerView.setAdapter(new CustomAdapter(mcontext, data, recyclerView));
             progressBar.setVisibility(View.INVISIBLE);
             if (MainActivity.twoPaneFlag) {
@@ -250,7 +265,7 @@ public class GridFragment extends android.support.v4.app.Fragment implements Loa
 
         }
 
-        recyclerView.setAdapter(new CustomAdapter(MyApplication.getAppContext(), donors, recyclerView));
+        recyclerView.setAdapter(new CustomAdapter(getActivity().getApplicationContext(), donors, recyclerView));
         progressBar.setVisibility(View.INVISIBLE);
         if (MainActivity.twoPaneFlag) {
 

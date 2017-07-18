@@ -103,7 +103,7 @@
                     android:layout_height="50dp"
                     android:layout_margin="2dp"
                     android:background="@android:drawable/btn_dropdown"
-                    android:entries="@array/bloodtypes"
+                    android:entries="@array/bloodtypes2"
                     android:prompt="@string/blood_type"
                     android:spinnerMode="dropdown"
 

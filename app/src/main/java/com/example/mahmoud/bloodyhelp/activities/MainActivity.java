@@ -30,6 +30,8 @@ import com.example.mahmoud.bloodyhelp.util.Utilities;
 import com.example.mahmoud.bloodyhelp.util.ViewPagerAdapter;
 import com.google.firebase.crash.FirebaseCrash;
 
+import java.util.ArrayList;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -55,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
     public static int saved_selected_filter = 0;
     Fragment savedFragment;
     Fragment gridFragment;
+    private String MainActivity_filter_Key = "filter_key";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
             getSupportActionBar().setTitle("");
             if (savedInstanceState != null) {
                 my_indicator = savedInstanceState.getInt(MainActivity_Key);
+                mfiltertype = savedInstanceState.getInt(MainActivity_filter_Key);
             }
             fragmentManager = getSupportFragmentManager();
             ft = fragmentManager.beginTransaction();
@@ -98,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         outState.putInt(MainActivity_Key, my_indicator);
+        outState.putInt(MainActivity_filter_Key, mfiltertype);
 
         super.onSaveInstanceState(outState);
     }
@@ -136,12 +141,12 @@ public class MainActivity extends AppCompatActivity {
     UpdateFrag mUpdateFrag;
 
     private void filter() {
+        String[] some_array = getResources().getStringArray(R.array.bloodtypes);
 
-        final String sorttype[] = {"All", "O postive", "A negative", "A positive", "B negative", "B positive", "AB negative", "AB positive"};
+        final String sorttype[] = getResources().getStringArray(R.array.bloodtypes);
         AlertDialog.Builder alertdialogbuilder = new AlertDialog.Builder(MainActivity.this);
         alertdialogbuilder.setTitle("Display blood type  ");
-
-        alertdialogbuilder.setSingleChoiceItems(sorttype, saved_selected_filter, new DialogInterface.OnClickListener() {
+        alertdialogbuilder.setSingleChoiceItems(sorttype, mfiltertype, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 mfiltertype = which;
@@ -168,4 +173,6 @@ public class MainActivity extends AppCompatActivity {
         ft.replace(R.id.framelayout_secondpane, fragment);
         ft.commit();
     }
+
+
 }

@@ -38,12 +38,18 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
         recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(mcontext, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Intent intent = new Intent(mcontext, DetailActivity.class);
-                intent.putExtra(KEY_DONOR_DETAILS, data.get(position));
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                mcontext.startActivity(intent);
-                if (MainActivity.twoPaneFlag) {
-                    MainActivity.loadDetailedFragment(data.get(position));
+                try {
+                    Intent intent = new Intent(mcontext, DetailActivity.class);
+
+                    intent.putExtra(KEY_DONOR_DETAILS, data.get(position));
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    mcontext.startActivity(intent);
+                    if (MainActivity.twoPaneFlag) {
+                        MainActivity.loadDetailedFragment(data.get(position));
+                    }
+                } catch (Exception exp) {
+
+                    exp.printStackTrace();
                 }
             }
         }));

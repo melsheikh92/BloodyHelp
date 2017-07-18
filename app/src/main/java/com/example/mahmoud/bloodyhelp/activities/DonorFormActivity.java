@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mahmoud.bloodyhelp.R;
+import com.example.mahmoud.bloodyhelp.models.Donor;
+import com.example.mahmoud.bloodyhelp.services.InsertNewDonorService;
 import com.example.mahmoud.bloodyhelp.util.Utilities;
 
 import butterknife.BindView;
@@ -24,6 +27,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class DonorFormActivity extends AppCompatActivity {
+
+    public static final String KEY_INSERT_DONOR = "com.example.mahmoud.bloodyhelp.KEY_INSERT_DONOR";
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.tv_title)
@@ -61,7 +66,6 @@ public class DonorFormActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         finish();
-
                     }
                 }
 
@@ -72,19 +76,32 @@ public class DonorFormActivity extends AppCompatActivity {
     @OnClick(R.id.btn_submit)
     void onButtonSubmit_clicked() {
         Utilities.showProgressDialog(this);
-        if (isDataValidated()) {
-           // InsertNewDonorService.startActionFoo(this);
+        if (true) {
+            Intent i = new Intent(this, InsertNewDonorService.class);
+            Donor donor = new Donor();
+            donor.setName(input_name.getText().toString());
+            donor.setCityId(spinner_city.getSelectedItemPosition());
+            donor.setPhone(input_mobile.getText().toString());
+            donor.setEmail(input_email.getText().toString());
+            donor.setTypeId(spinner_blood.getSelectedItemPosition());
+            donor.setDescription(inpute_desc.getText().toString());
+            i.putExtra(KEY_INSERT_DONOR, donor);
+
+            startService(i);
         }
-        //    Toast.makeText(this, "submit button", Toast.LENGTH_LONG).show();
 
     }
 
     private boolean isDataValidated() {
 
+        if (input_email.getText().toString() != "" && input_name.getText().toString() != "" && inpute_desc.getText().toString() != "") {
 
-        return true;
+
+        }
+
+
+        return false;
     }
-
 
 
     public static void showInsertingResults(boolean issucced) {
@@ -103,7 +120,7 @@ public class DonorFormActivity extends AppCompatActivity {
 
             // set dialog message
             alertDialogBuilder
-                    .setMessage("Process Inserted Successfully!")
+                    .setMessage("Process not  Inserted !")
                     .setCancelable(true)
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
@@ -119,20 +136,6 @@ public class DonorFormActivity extends AppCompatActivity {
     }
 
 
-//    private class LongOperation extends AsyncTask<String, Void, String> {
-//
-//        @Override
-//        protected String doInBackground(String... params) {
-//
-//
-//            return "Executed";
-//        }
-//
-//        @Override
-//        protected void onPostExecute(String result) {
-//
-//        }
-//    }
 }
 
 
