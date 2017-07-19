@@ -2,7 +2,6 @@
 
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -21,7 +20,7 @@
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Donor"
+            android:text="@string/New_Donor"
             android:textColor="@android:color/white"
             android:textSize="22sp" />
 
@@ -57,7 +56,7 @@
                         android:id="@+id/input_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Display name"
+                        android:hint="@string/Display_name"
                         android:windowSoftInputMode="stateHidden" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -71,7 +70,7 @@
                         android:id="@+id/input_mobile"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Mobile number"
+                        android:hint="@string/Mobile_number"
                         android:windowSoftInputMode="stateHidden" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -86,7 +85,7 @@
                         android:id="@+id/input_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Email"
+                        android:hint="@string/Email"
                         android:windowSoftInputMode="stateHidden" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -95,7 +94,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="2dp"
-                    android:text="Bood type" />
+                    android:text="@string/Bood_type" />
 
                 <Spinner
                     android:id="@+id/spinner_blood"
@@ -114,7 +113,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="2dp"
 
-                    android:text="City" />
+                    android:text="@string/City" />
 
                 <Spinner
                     android:id="@+id/spinner_city"
@@ -134,7 +133,7 @@
                     android:background="@color/colorSilver"
                     android:elevation="4dp"
                     android:gravity="start"
-                    android:hint="Description"
+                    android:hint="@string/Description"
                     android:inputType="text"
                     android:lines="6"
                     android:padding="5dp"
@@ -170,7 +169,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="10dp"
                 android:background="@color/colorPrimary"
-                android:text="Submit"
+                android:text="@string/Submit"
                 android:textColor="@android:color/white" />
         </LinearLayout>
     </FrameLayout>

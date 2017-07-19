@@ -5,18 +5,18 @@
     <item
         android:id="@+id/menu_add"
         android:icon="@android:drawable/ic_menu_add"
-        android:title="Add"
+        android:title="@string/add"
         app:showAsAction="always" />
     <item
         android:id="@+id/menu_filter"
         android:icon="@android:drawable/ic_menu_sort_by_size"
-        android:title="Filter"
+        android:title="@string/filter"
         app:showAsAction="always" />
     <item
         android:id="@+id/menu_settings"
         android:icon="@android:drawable/ic_menu_manage"
-        android:title="Settings" />
+        android:title="@string/Settings" />
     <item
         android:id="@+id/menu_about_me"
-        android:title="About me" />
+        android:title="@string/About" />
 </menu>

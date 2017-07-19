@@ -10,7 +10,7 @@
         android:layout_gravity="bottom"
         android:layout_margin="5dp"
         android:background="@color/colorPrimary"
-        android:text="Rundom Quote"
+        android:text="@string/random_quote"
         android:textColor="@android:color/white" />
 
     <LinearLayout
@@ -38,9 +38,9 @@
             android:id="@+id/tv_author"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:layout_gravity="end"
             android:layout_marginEnd="10dp"
-            android:text="TextView"
+            android:text=""
             android:textColor="@android:color/darker_gray" />
     </LinearLayout>
 

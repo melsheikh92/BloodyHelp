@@ -11,14 +11,12 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.mahmoud.bloodyhelp.MyApplication;
 import com.example.mahmoud.bloodyhelp.R;
 import com.example.mahmoud.bloodyhelp.activities.MainActivity;
 import com.example.mahmoud.bloodyhelp.data.FavoriteProvider;
@@ -28,16 +26,10 @@ import com.example.mahmoud.bloodyhelp.util.Utilities;
 import com.google.firebase.crash.FirebaseCrash;
 
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
 
 /**
@@ -115,7 +107,7 @@ public class SavedFragment extends android.support.v4.app.Fragment implements Lo
 
                         forceLoad();
                     } else {
-                        Toast.makeText(mcontext, "No Internet connection.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(mcontext, getContext().getString(R.string.no_internet), Toast.LENGTH_LONG).show();
 
                     }
                 }
@@ -145,40 +137,45 @@ public class SavedFragment extends android.support.v4.app.Fragment implements Lo
 
     private ArrayList<Donor> parseFavCursor(Cursor query) {
         ArrayList<Donor> saved_donors = new ArrayList<>();
+        try {
+            while (query.moveToNext()) {
 
-        while (query.moveToNext()) {
+                Donor d = new Donor();
+                d.setId(Integer.parseInt(query.getString(0)));
+                d.setName(query.getString(1));
+                d.setDescription(query.getString(2));
+                d.setCityId(Integer.parseInt(query.getString(3)));
+                d.setTypeId(Integer.parseInt(query.getString(4)));
+                d.setPhone(query.getString(5));
+                d.setEmail(query.getString(6));
+                saved_donors.add(d);
+            }
+        } catch (Exception exeption) {
+            exeption.printStackTrace();
+            FirebaseCrash.log(exeption.toString());
 
-            Donor d = new Donor();
-            d.setId(Integer.parseInt(query.getString(0)));
-            d.setName(query.getString(1));
-            d.setDescription(query.getString(2));
-            d.setCityId(Integer.parseInt(query.getString(3)));
-            d.setTypeId(Integer.parseInt(query.getString(4)));
-            d.setPhone(query.getString(5));
-            d.setEmail(query.getString(6));
-            saved_donors.add(d);
         }
-
         return saved_donors;
     }
 
     @Override
     public void onLoadFinished(Loader<ArrayList<Donor>> loader, ArrayList<Donor> data) {
         if (data != null) {
-            donors_array = data;
+            if (data.size() > 0) {
+                donors_array = data;
 
-            recyclerView.setAdapter(new CustomAdapter(mcontext, data, recyclerView));
-            progressBar.setVisibility(View.INVISIBLE);
-            if (MainActivity.twoPaneFlag) {
+                recyclerView.setAdapter(new CustomAdapter(mcontext, data, recyclerView));
+                progressBar.setVisibility(View.INVISIBLE);
+                if (MainActivity.twoPaneFlag) {
 
-                MainActivity.loadDetailedFragment(data.get(0));
+                    MainActivity.loadDetailedFragment(data.get(0));
+                }
             }
-
 
         } else {
             progressBar.setVisibility(View.INVISIBLE);
 
-            Toast.makeText(mcontext, "Error while fetching data.", Toast.LENGTH_LONG).show();
+            Toast.makeText(mcontext, mcontext.getString(R.string.err_data), Toast.LENGTH_LONG).show();
 
 
         }

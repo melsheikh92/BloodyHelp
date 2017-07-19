@@ -44,7 +44,7 @@
                         android:id="@+id/tv_detail_name"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="TextView"
+                        android:text=""
                         android:textAlignment="center"
                         android:textColor="@android:color/black" />
                 </LinearLayout>
@@ -63,7 +63,7 @@
                             android:id="@+id/tv_star"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Add to favorite"
+                            android:text="@string/Add_to_favorite"
                             android:textColor="@color/colorSilver" />
 
                         <CheckBox
@@ -91,7 +91,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:padding="5dp"
-                    android:text="Mobile"
+                    android:text="@string/Mobile"
                     android:textAlignment="viewStart"
                     android:textColor="@android:color/black" />
 
@@ -101,7 +101,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="TextView"
+                    android:text=""
                     android:textAlignment="center"
                     android:textColor="@android:color/black" />
 
@@ -135,7 +135,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:padding="5dp"
-                    android:text="Email"
+                    android:text="@string/Email"
                     android:textAlignment="viewStart"
                     android:textColor="@android:color/black" />
 
@@ -145,7 +145,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="TextView"
+                    android:text=""
                     android:textAlignment="center"
                     android:textColor="@android:color/black" />
 

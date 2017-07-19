@@ -43,8 +43,9 @@ public class Utilities {
     public static void showProgressDialog(Context context) {
 
         progress = new ProgressDialog(context);
-        progress.setTitle("Loading");
-        progress.setMessage("Wait while loading...");
+        progress.setTitle(context.getString(R.string.loading));
+        progress.setMessage(context.getString(R.string.wait));
+
         progress.setCancelable(false);
         progress.show();
         progress.dismiss();

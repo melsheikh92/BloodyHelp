@@ -2,16 +2,13 @@ package com.example.mahmoud.bloodyhelp.services;
 
 import android.app.IntentService;
 import android.content.Intent;
-import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.mahmoud.bloodyhelp.R;
 import com.example.mahmoud.bloodyhelp.activities.DonorFormActivity;
 import com.example.mahmoud.bloodyhelp.models.Donor;
 import com.google.firebase.crash.FirebaseCrash;
 
-import org.json.JSONObject;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;

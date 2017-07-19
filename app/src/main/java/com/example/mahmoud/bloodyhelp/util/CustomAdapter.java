@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static java.security.AccessController.getContext;
 
 /**
  * Created by Mahmoud on 29/06/2017.

@@ -6,7 +6,7 @@ android {
         config {
             keyAlias 'BloodyKey'
             keyPassword '4102914'
-            storeFile file("$projectDir/signing_key.jks")
+            storeFile file("$rootDir/signing_key.jks")
             storePassword '4102914'
         }
     }

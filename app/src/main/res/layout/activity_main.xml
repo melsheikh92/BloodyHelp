@@ -25,7 +25,7 @@
                 android:id="@+id/tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bloody Help"
+                android:text="@string/bloody_help"
                 android:textColor="@android:color/white"
                 android:textSize="22sp"
                 android:textStyle="bold"

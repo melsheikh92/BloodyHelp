@@ -5,7 +5,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.PersistableBundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -30,7 +29,6 @@ import com.example.mahmoud.bloodyhelp.util.Utilities;
 import com.example.mahmoud.bloodyhelp.util.ViewPagerAdapter;
 import com.google.firebase.crash.FirebaseCrash;
 
-import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -145,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
 
         final String sorttype[] = getResources().getStringArray(R.array.bloodtypes);
         AlertDialog.Builder alertdialogbuilder = new AlertDialog.Builder(MainActivity.this);
-        alertdialogbuilder.setTitle("Display blood type  ");
+        alertdialogbuilder.setTitle(mcontext.getString(R.string.blood_type));
         alertdialogbuilder.setSingleChoiceItems(sorttype, mfiltertype, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

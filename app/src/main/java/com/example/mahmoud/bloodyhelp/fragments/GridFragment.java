@@ -18,10 +18,8 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.mahmoud.bloodyhelp.MyApplication;
 import com.example.mahmoud.bloodyhelp.R;
 import com.example.mahmoud.bloodyhelp.activities.MainActivity;
-import com.example.mahmoud.bloodyhelp.data.FavoriteProvider;
 import com.example.mahmoud.bloodyhelp.models.Donor;
 import com.example.mahmoud.bloodyhelp.util.CustomAdapter;
 import com.example.mahmoud.bloodyhelp.util.UpdateFrag;
@@ -177,24 +175,6 @@ public class GridFragment extends android.support.v4.app.Fragment implements Loa
         };
     }
 
-    private ArrayList<Donor> parseFavCursor(Cursor query) {
-        ArrayList<Donor> saved_donors = new ArrayList<>();
-
-        while (query.moveToNext()) {
-
-            Donor d = new Donor();
-            d.setId(Integer.parseInt(query.getString(0)));
-            d.setName(query.getString(1));
-            d.setDescription(query.getString(2));
-            d.setCityId(Integer.parseInt(query.getString(3)));
-            d.setTypeId(Integer.parseInt(query.getString(4)));
-            d.setPhone(query.getString(5));
-            d.setEmail(query.getString(6));
-            saved_donors.add(d);
-        }
-
-        return saved_donors;
-    }
 
     @Override
     public void onLoadFinished(Loader<ArrayList<Donor>> loader, ArrayList<Donor> data) {

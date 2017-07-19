@@ -19,7 +19,7 @@
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Bloody Help"
+            android:text="@string/bloody_help"
             android:textColor="@android:color/white"
             android:textSize="22sp"
             android:textStyle="bold"
@@ -32,6 +32,6 @@
     <FrameLayout
         android:id="@+id/framelayout_details"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></FrameLayout>
+        android:layout_height="match_parent" />
 
 </LinearLayout>

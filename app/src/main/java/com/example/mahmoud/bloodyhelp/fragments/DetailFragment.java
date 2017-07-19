@@ -149,7 +149,6 @@ public class DetailFragment extends android.support.v4.app.Fragment {
                     Toast.makeText(getContext().getApplicationContext(), uri.toString(), Toast.LENGTH_LONG).show();
                 }
             } catch (Exception e) {
-                // Toast.makeText(getContext().getApplicationContext(), "error while adding to local database", Toast.LENGTH_LONG).show();
                 e.printStackTrace();
             }
 
@@ -163,7 +162,6 @@ public class DetailFragment extends android.support.v4.app.Fragment {
                 getContext().getContentResolver().delete(uri, null, null);
 
             } catch (Exception exception) {
-                //    Toast.makeText(getContext().getApplicationContext(), "error while deleting", Toast.LENGTH_LONG).show();
                 exception.printStackTrace();
             }
 
@@ -202,20 +200,20 @@ public class DetailFragment extends android.support.v4.app.Fragment {
     @OnShowRationale(android.Manifest.permission.CALL_PHONE)
     void showRationaleForCamera(final PermissionRequest request) {
         new AlertDialog.Builder(getContext())
-                .setMessage("Do you want Bloody help app makes a calls")
-                .setPositiveButton("Allow", (dialog, button) -> request.proceed())
-                .setNegativeButton("Deny", (dialog, button) -> request.cancel())
+                .setMessage(getContext().getString(R.string.do_you_want_blood))
+                .setPositiveButton(getContext().getString(R.string.allow), (dialog, button) -> request.proceed())
+                .setNegativeButton(getContext().getString(R.string.deny), (dialog, button) -> request.cancel())
                 .show();
     }
 
     @OnPermissionDenied(android.Manifest.permission.CALL_PHONE)
     void showDeniedForCall() {
-        Toast.makeText(getContext(), "", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), getContext().getString(R.string.permission_denied), Toast.LENGTH_SHORT).show();
     }
 
     @OnNeverAskAgain(android.Manifest.permission.CALL_PHONE)
     void showNeverAskForCall() {
-        Toast.makeText(getContext(), "", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), getContext().getString(R.string.permission_denied), Toast.LENGTH_SHORT).show();
     }
 
     @OnClick(R.id.imgbtn_email)
@@ -224,7 +222,7 @@ public class DetailFragment extends android.support.v4.app.Fragment {
         String aEmailList[] = {donor.getEmail()};
         emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, aEmailList);
 
-        emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Bloody help");
+        emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, getContext().getString(R.string.bloody_help));
         emailIntent.setType("plain/text");
         emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "");
 

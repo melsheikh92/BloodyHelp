@@ -188,25 +188,25 @@ public class DonorFormActivity extends AppCompatActivity {
         boolean flag = true;
         if (input_email.getText().toString().trim().length() == 0) {
             flag = false;
-            input_email.setError("Cannot be empty");
+            input_email.setError(mcontext.getString(R.string.empty));
         } else {
             if (input_email.getText().toString().trim().matches(emailPattern)) {
             } else {
-                input_email.setError("you input not seems to be an email");
+                input_email.setError(mcontext.getString(R.string.not_email));
                 flag = false;
 
             }
         }
         if (input_name.getText().toString().trim().length() == 0) {
-            input_name.setError("Cannot be empty");
+            input_name.setError(mcontext.getString(R.string.empty));
             flag = false;
         }
         if (input_mobile.getText().toString().trim().length() == 0) {
-            input_mobile.setError("Cannot be empty");
+            input_mobile.setError(mcontext.getString(R.string.empty));
             flag = false;
         }
         if (inpute_desc.getText().toString().trim().length() == 0) {
-            inpute_desc.setError("Cannot be empty");
+            inpute_desc.setError(mcontext.getString(R.string.empty));
             flag = false;
         }
         return flag;
@@ -216,7 +216,7 @@ public class DonorFormActivity extends AppCompatActivity {
     public static void showInsertingResults(boolean issucced) {
         Utilities.hideProgressDialog();
         if (issucced) {
-            Toast.makeText(mcontext, "Inserted Successfully", Toast.LENGTH_LONG).show();
+            Toast.makeText(mcontext, mcontext.getString(R.string.inserted_successfully), Toast.LENGTH_LONG).show();
             activity.finish();
         } else {
 
@@ -225,13 +225,13 @@ public class DonorFormActivity extends AppCompatActivity {
             );
 
             // set title
-            alertDialogBuilder.setTitle("Error");
+            alertDialogBuilder.setTitle(mcontext.getString(R.string.error));
 
             // set dialog message
             alertDialogBuilder
-                    .setMessage("Process not  Inserted !")
+                    .setMessage(mcontext.getString(R.string.process_failed))
                     .setCancelable(true)
-                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    .setPositiveButton(mcontext.getString(R.string.ok), new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.dismiss();
                         }
