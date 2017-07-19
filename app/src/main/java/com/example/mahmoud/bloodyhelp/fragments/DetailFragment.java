@@ -175,7 +175,7 @@ public class DetailFragment extends android.support.v4.app.Fragment {
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
         sendIntent.putExtra(Intent.EXTRA_TEXT,
-                "Hey,Here you can find a " + "A+" + "  blood donor called " + donor.getName() + " his/her email:" + donor.getEmail() + " his/her mobile number is " + donor.getPhone());
+           getContext().getString(R.string.msg1)     +" " + donor.getName() +   getContext().getString(R.string.msg2)+ donor.getEmail() + getContext().getString(R.string.msg3) +"  " + donor.getPhone());
         sendIntent.setType("text/plain");
         startActivity(sendIntent);
 

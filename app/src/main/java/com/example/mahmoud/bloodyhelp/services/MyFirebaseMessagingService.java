@@ -33,7 +33,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             NotificationCompat.Builder mBuilder =
                     new NotificationCompat.Builder(this)
                             .setSmallIcon(R.mipmap.ic_launcher)
-                            .setContentTitle("Bloody Help!")
+                            .setContentTitle(getString(R.string.bloody_help))
                             .setContentText(remoteMessage.getNotification().getBody());
 
             notification  = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);

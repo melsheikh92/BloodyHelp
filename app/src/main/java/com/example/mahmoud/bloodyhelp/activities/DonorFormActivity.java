@@ -84,13 +84,13 @@ public class DonorFormActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
                 if (input_email.getText().length() == 0) {
-                    input_email.setError("Cannot be empty");
+                    input_email.setError(mcontext.getString(R.string.empty));
 
                 } else {
                     if (input_email.getText().toString().trim().matches(emailPattern)) {
                     } else {
 
-                        input_email.setError("you input not seems to be an email");
+                        input_email.setError(mcontext.getString(R.string.not_email));
 
                     }
 
@@ -113,7 +113,7 @@ public class DonorFormActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (inpute_desc.getText().toString().trim().length() == 0) {
-                    inpute_desc.setError("cannot be empty");
+                    inpute_desc.setError(mcontext.getString(R.string.empty));
 
                 }
             }
@@ -132,7 +132,7 @@ public class DonorFormActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (input_mobile.getText().toString().trim().length() == 0) {
-                    input_mobile.setError("Cannot be empty");
+                    input_mobile.setError(mcontext.getString(R.string.empty));
 
                 }
             }
@@ -151,7 +151,7 @@ public class DonorFormActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (input_name.getText().toString().trim().length() == 0) {
-                    input_name.setError("cannot be empty");
+                    input_name.setError(mcontext.getString(R.string.empty));
 
                 }
             }

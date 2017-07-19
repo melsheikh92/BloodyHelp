@@ -113,7 +113,7 @@ public class GridFragment extends android.support.v4.app.Fragment implements Loa
 
                         forceLoad();
                     } else {
-                        Toast.makeText(mcontext, "No Internet connection.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(mcontext, mcontext.getString(R.string.no_internet), Toast.LENGTH_LONG).show();
 
                     }
                 }
@@ -206,7 +206,7 @@ public class GridFragment extends android.support.v4.app.Fragment implements Loa
         } else {
             progressBar.setVisibility(View.INVISIBLE);
 
-            Toast.makeText(mcontext, "Error while fetching data.", Toast.LENGTH_LONG).show();
+            Toast.makeText(mcontext, mcontext.getString(R.string.err_data), Toast.LENGTH_LONG).show();
 
 
         }

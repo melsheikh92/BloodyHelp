@@ -84,10 +84,10 @@ public class MainActivity extends AppCompatActivity {
 
             ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
             gridFragment = new GridFragment();
-            adapter.addFrag(gridFragment, "Donors");
+            adapter.addFrag(gridFragment, getString(R.string.donors));
             savedFragment = new SavedFragment();
 
-            adapter.addFrag(savedFragment, "Favorites");
+            adapter.addFrag(savedFragment, getString(R.string.fav));
             viewpager.setAdapter(adapter);
         } catch (Exception ex) {
             FirebaseCrash.log(ex.toString());

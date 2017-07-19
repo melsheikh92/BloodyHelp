@@ -49,6 +49,11 @@
     <string name="err_data">Error while fetching data</string>
     <string name="loading">Loading</string>
     <string name="wait">Wait while loading...</string>
+    <string name="donors">Donors</string>
+    <string name="fav">Favorites</string>
+    <string name="msg1">Hey,Here you can find a blood donor called</string>
+    <string name="msg2">his/her email:</string>
+    <string name="msg3">his/her mobile number is</string>
 
     <string-array name="bloodtypes">
 
